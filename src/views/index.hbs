@@ -1,0 +1,38 @@
+<div class="col-md-6 offset-md-3">
+	<div class="card">
+		<div class="card-header">
+			<h1>
+				Your Favorites Castlevania characters
+			</h1>
+		</div>
+		<div class="card-body">
+			{{#if chars}}
+				<ul class="list-group">
+					{{#each chars}}
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+							{{name}} /
+							{{game}}
+							<a href="/delete-contact/{{@key}}" class="btn btn-danger">
+								Delete
+							</a>
+						</li>
+					{{/each}}		
+				</ul>
+				{{else}}
+				<p>No Chars yet. :(</p>
+			{{/if}}
+		</div>
+
+		<div class="card-footer">
+			<form action="/new-char" method="POST">
+				<div class="form-group">
+					<input type="text" name="name" placeholder="Name of the character" class="form-control" autofocus>
+				</div>
+				<div class="form-group">
+					<input type="text" name="game" placeholder="Castlevania videogame" class="form-control" autofocus>
+				</div>
+				<button class="btn btn-primary">Add</button>
+			</form>
+		</div>
+	</div>
+</div>
